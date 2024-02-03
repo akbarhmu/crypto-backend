@@ -15,6 +15,7 @@ suspend fun keyProvider(context: ApiContext) {
 
     try {
         val publicKey = context.req.body?.decodeToString()
+        context.logger.debug("PUBLIC KEY: $publicKey")
 
         if (publicKey != null) {
              val encryptedData = DataEncryption.encrypt(
@@ -25,7 +26,7 @@ suspend fun keyProvider(context: ApiContext) {
                          secondKey = secondKey
                      )
                  ),
-                 generatedPublicKey = publicKey
+                 generatedPublicKey = publicKey.replace("\"", "")
              )
 
             if (encryptedData != null) {

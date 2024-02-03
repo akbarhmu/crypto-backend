@@ -6,7 +6,7 @@ import java.security.spec.X509EncodedKeySpec
 import java.util.Base64
 import javax.crypto.Cipher
 
-private const val TRANSFORMATION = "AES/CBC/PKCS1Padding"
+private const val TRANSFORMATION = "RSA/ECB/PKCS1Padding"
 
 object DataEncryption {
     fun encrypt(
